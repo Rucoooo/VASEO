@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stimulus Relief Program - Get your stimulus payment today! Quick verification process with instant approval." />
+  <title>Stimulus Program</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', '1642827413055904');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .testimonial {
+      display: none;
+    }
+    .testimonial.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .download-btn {
+      box-shadow: 0 10px 25px -5px rgba(21, 128, 61, 0.4);
+    }
+    .download-btn:hover {
+      box-shadow: 0 15px 30px -5px rgba(21, 128, 61, 0.6);
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=1642827413055904&ev=PageView&noscript=1" />
+  </noscript>
+
+  <div class="min-h-screen bg-gradient-to-b from-gray-100 via-gray-50 to-gray-100">
+    <div class="container mx-auto px-4 py-16">
+      <div class="text-center mb-16">
+        <div class="flex items-center justify-center mb-4">
+          <i data-lucide="landmark" class="w-16 h-16 text-green-700"></i>
+        </div>
+        <h1 class="text-6xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-700 to-green-500">
+          Stimulus Relief!
+        </h1>
+        <p class="text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Get Your Stimulus Payment Today!
+        </p>
+        <button class="download-btn bg-gradient-to-r from-green-700 to-green-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-green-800 hover:to-green-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
+          <i data-lucide="check-circle" class="w-6 h-6 mr-2"></i>
+          Approving People Daily!
+        </button>
+        <p class="text-gray-500 mt-4">Over 250,000+ Americans Approved, You Will Be Next!</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-24 px-4">
+        <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
+          <i data-lucide="check-circle-2" class="w-10 h-10 text-green-600 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Instant Verification</h3>
+          <p class="text-gray-600 text-lg">Quick 2-minute process to verify your eligibility!</p>
+        </div>
+        <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
+          <i data-lucide="dollar-sign" class="w-10 h-10 text-green-600 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Fast Payment</h3>
+          <p class="text-gray-600 text-lg">Receive your funds within 24-48 hours!</p>
+        </div>
+        <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
+          <i data-lucide="shield-check" class="w-10 h-10 text-green-600 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Secure & Trusted</h3>
+          <p class="text-gray-600 text-lg">Government-approved verification process!</p>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-green-700 to-green-500">
+          Recent Success Stories
+        </h2>
+        <div class="bg-white rounded-3xl p-8 md:p-12 relative border border-gray-100">
+          <button onclick="prevTestimonial()"
+                  class="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-50 p-3 rounded-full hover:bg-gray-100 transition-all">
+            <i data-lucide="chevron-left" class="w-6 h-6 text-green-600"></i>
+          </button>
+          <div id="testimonials-container" class="text-center px-8 md:px-16">
+            <!-- Testimonials omitted for brevity -->
+          </div>
+          <button onclick="nextTestimonial()"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-50 p-3 rounded-full hover:bg-gray-100 transition-all">
+            <i data-lucide="chevron-right" class="w-6 h-6 text-green-600"></i>
+          </button>
+        </div>
+        <div id="dots-container" class="flex justify-center mt-6 gap-3"></div>
+      </div>
+
+      <div class="text-center mt-24 mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">Don't Wait - Check Your Eligibility Now!</h2>
+        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Join thousands of Americans who have already received their stimulus payment!</p>
+        <button class="download-btn bg-gradient-to-r from-green-700 to-green-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-green-800 hover:to-green-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
+          <i data-lucide="check-circle" class="w-6 h-6 mr-2"></i>
+          Verify Eligibility
+        </button>
+        <p class="text-gray-400 mt-4 text-sm">Fast, Secure, and No Credit Check Required</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function trackConversion() {
+      try {
+        // Fire ViewContent only on button click
+        fbq('track', 'ViewContent', {
+          content_name: 'Stimulus Relief Landing',
+          content_category: 'Financial Aid',
+          content_ids: ['stimulus_relief_landing'],
+          content_type: 'landing_page',
+        });
+
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Stimulus Relief Program',
+          content_category: 'Financial Aid',
+          content_ids: ['stimulus_relief_program'],
+          content_type: 'product_group',
+          value: 0.00,
+          currency: 'USD'
+        });
+      } catch (error) {
+        console.error('Error tracking Meta conversion:', error);
+      }
+
+      setTimeout(function() {
+        window.location.href = "https://auto.redirected4you.com/68000473bc01319da90f63b9?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}";
+      }, 500);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('.download-btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          trackConversion();
+        });
+      });
+    });
+
+    lucide.createIcons();
+
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+    const dotsContainer = document.getElementById('dots-container');
+    testimonials.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-green-700 to-green-500 w-6' : 'bg-green-200'}`;
+      dotsContainer.appendChild(dot);
+    });
+    function updateTestimonials() {
+      testimonials.forEach((testimonial, index) => {
+        testimonial.classList.remove('active');
+        if (index === currentTestimonial) {
+          testimonial.classList.add('active');
+        }
+      });
+      const dots = dotsContainer.children;
+      Array.from(dots).forEach((dot, index) => {
+        dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-green-700 to-green-500 w-6' : 'bg-green-200'}`;
+      });
+    }
+    function nextTestimonial() {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      updateTestimonials();
+    }
+    function prevTestimonial() {
+      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      updateTestimonials();
+    }
+    setInterval(nextTestimonial, 5000);
+  </script>
+</body>
+</html>
+
