@@ -44,6 +44,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -84,7 +87,93 @@
            src="https://www.facebook.com/tr?id=1620952068623490&ev=PageView&noscript=1" />
     </noscript>
 
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="min-h-screen bg-gradient-to-b from-gray-100 via-gray-50 to-gray-100">
+      <div class="container mx-auto px-4 py-16">
+        <div class="text-center mb-16">
+          <div class="flex items-center justify-center mb-4">
+            <i data-lucide="car" class="w-16 h-16 text-green-700"></i>
+          </div>
+          <h1 class="text-6xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-700 to-green-500">
+            Auto Insurance Savings!
+          </h1>
+          <p class="text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Get Lower Rates On Your Auto Insurance Today!
+          </p>
+          <button class="download-btn bg-gradient-to-r from-green-700 to-green-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-green-800 hover:to-green-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
+            <i data-lucide="check-circle" class="w-6 h-6 mr-2"></i>
+            Check Your New Rate!
+          </button>
+          <p class="text-gray-500 mt-4">Over 250,000+ Drivers Saving Money, You Could Be Next!</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-24 px-4">
+          <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
+            <i data-lucide="badge-percent" class="w-10 h-10 text-green-600 mb-4"></i>
+            <h3 class="text-2xl font-semibold mb-3 text-gray-900">Save Up To 50%</h3>
+            <p class="text-gray-600 text-lg">Many drivers qualify for significant savings on their policies!</p>
+          </div>
+          <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
+            <i data-lucide="dollar-sign" class="w-10 h-10 text-green-600 mb-4"></i>
+            <h3 class="text-2xl font-semibold mb-3 text-gray-900">Instant Quote</h3>
+            <p class="text-gray-600 text-lg">Get your personalized rate in just 2 minutes!</p>
+          </div>
+          <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
+            <i data-lucide="shield-check" class="w-10 h-10 text-green-600 mb-4"></i>
+            <h3 class="text-2xl font-semibold mb-3 text-gray-900">Full Coverage</h3>
+            <p class="text-gray-600 text-lg">Comprehensive protection for you and your vehicle!</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-24 mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">Don't Overpay - Check Your Rate Now!</h2>
+          <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Join thousands of drivers who have already switched and saved on their auto insurance!</p>
+          <button class="download-btn bg-gradient-to-r from-green-700 to-green-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-green-800 hover:to-green-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
+            <i data-lucide="check-circle" class="w-6 h-6 mr-2"></i>
+            Get My Free Quote
+          </button>
+          <p class="text-gray-400 mt-4 text-sm">Fast, Secure, and No Obligation Required</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function trackConversion() {
+        try {
+          fbq('track', 'ViewContent', {
+            content_name: 'Auto Insurance Landing',
+            content_category: 'Insurance',
+            content_ids: ['auto_insurance_landing'],
+            content_type: 'landing_page',
+          });
+
+          fbq('track', 'InitiateCheckout', {
+            content_name: 'Auto Insurance Program',
+            content_category: 'Insurance',
+            content_ids: ['auto_insurance_program'],
+            content_type: 'product_group',
+            value: 0.00,
+            currency: 'USD'
+          });
+        } catch (error) {
+          console.error('Error tracking Meta conversion:', error);
+        }
+
+        setTimeout(function() {
+          window.location.href = "https://auto.redirected4you.com/68000473bc01319da90f63b9?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}";
+        }, 500);
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('.download-btn');
+        buttons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            trackConversion();
+          });
+        });
+
+        lucide.createIcons();
+      });
+    </script>
   </body>
 </html>
