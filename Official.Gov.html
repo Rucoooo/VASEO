@@ -1,208 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Stimulus Relief Program - Get your stimulus payment today! Quick verification process with instant approval." />
-  <title>Stimulus Program</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Stimulus Relief Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', '1642827413055904');
-    fbq('track', 'PageView');
-  </script>
-  <!-- End Meta Pixel Code -->
-   
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YYZ2EV2C7J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
 
-  gtag('config', 'G-YYZ2EV2C7J');
-</script>
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
 
- <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PPBGQX42');</script>
-<!-- End Google Tag Manager -->
+        @keyframes slideOutToRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        .testimonial-popup {
+            position: fixed;
+            top: 20px;
+            left: 16px;
+            right: 16px;
+            z-index: 1000;
+            animation: slideInFromLeft 0.5s ease-out;
+        }
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+        .testimonial-popup.slide-out {
+            animation: slideOutToRight 0.5s ease-in;
+        }
 
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .testimonial {
-      display: none;
-    }
-    .testimonial.active {
-      display: block;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .download-btn {
-      box-shadow: 0 10px 25px -5px rgba(21, 128, 61, 0.4);
-    }
-    .download-btn:hover {
-      box-shadow: 0 15px 30px -5px rgba(21, 128, 61, 0.6);
-    }
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+        /* Smooth transitions for interactive elements */
+        button {
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+
+        /* Government seal styling */
+        .government-seal {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        /* Image styling */
+        .logo-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            margin: 0 auto 16px auto;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Patriotic gradient background */
+        .patriotic-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #dc2626 100%);
+        }
+
+        /* Step numbers styling */
+        .step-number {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+        }
+
+        /* Official styling */
+        .official-badge {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPBGQX42"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <noscript>
-    <img height="1" width="1" style="display:none" 
-         src="https://www.facebook.com/tr?id=1642827413055904&ev=PageView&noscript=1" />
-  </noscript>
+    <div class="min-h-screen patriotic-gradient flex items-center justify-center p-4">
+        <div class="w-full max-w-sm">
+            <!-- Main floating card -->
+            <div class="bg-white rounded-2xl shadow-2xl p-6 animate-float">
+                <!-- Government Seal Image - Replace with your government seal -->
+                <img src="images/government-seal.png" alt="Government Seal" class="logo-image">
 
-  <div class="min-h-screen bg-gradient-to-b from-gray-100 via-gray-50 to-gray-100">
-    <div class="container mx-auto px-4 py-16">
-      <div class="text-center mb-16">
-        <div class="flex items-center justify-center mb-4">
-          <i data-lucide="landmark" class="w-16 h-16 text-green-700"></i>
-        </div>
-        <h1 class="text-6xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-700 to-green-500">
-          Stimulus Relief!
-        </h1>
-        <p class="text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Get Your Stimulus Payment Today!
-        </p>
-        <button class="download-btn bg-gradient-to-r from-green-700 to-green-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-green-800 hover:to-green-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
-          <i data-lucide="check-circle" class="w-6 h-6 mr-2"></i>
-          Approving People Daily!
-        </button>
-        <p class="text-gray-500 mt-4">Over 250,000+ Americans Approved, You Will Be Next!</p>
-      </div>
+                <!-- Official Badge -->
+                <div class="flex justify-center mb-4">
+                    <div class="official-badge">
+                        Official Government Program
+                    </div>
+                </div>
 
-      <div class="grid md:grid-cols-3 gap-8 mb-24 px-4">
-        <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
-          <i data-lucide="check-circle-2" class="w-10 h-10 text-green-600 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Instant Verification</h3>
-          <p class="text-gray-600 text-lg">Quick 2-minute process to verify your eligibility!</p>
-        </div>
-        <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
-          <i data-lucide="dollar-sign" class="w-10 h-10 text-green-600 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Fast Payment</h3>
-          <p class="text-gray-600 text-lg">Receive your funds within 24-48 hours!</p>
-        </div>
-        <div class="feature-card bg-white p-8 rounded-2xl hover:bg-gray-50 transition-all duration-300 border border-gray-100">
-          <i data-lucide="shield-check" class="w-10 h-10 text-green-600 mb-4"></i>
-          <h3 class="text-2xl font-semibold mb-3 text-gray-900">Secure & Trusted</h3>
-          <p class="text-gray-600 text-lg">Government-approved verification process!</p>
-        </div>
-      </div>
+                <!-- Title -->
+                <div class="text-center mb-6">
+                    <h1 class="text-xl font-bold text-gray-900 mb-2 leading-tight">Qualify for Government Stimulus Relief</h1>
+                    <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
+                        <span>Authorized by</span>
+                        <span class="font-semibold text-blue-600">U.S. Treasury</span>
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                    </div>
+                </div>
 
-      <div class="text-center mt-24 mb-16">
-        <h2 class="text-4xl font-bold text-gray-900 mb-6">Don't Wait - Check Your Eligibility Now!</h2>
-        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Join thousands of Americans who have already received their stimulus payment!</p>
-        <button class="download-btn bg-gradient-to-r from-green-700 to-green-500 text-white px-8 py-4 rounded-full inline-flex items-center justify-center mx-auto hover:from-green-800 hover:to-green-600 transition-all transform hover:scale-105 shadow-lg text-xl font-semibold">
-          <i data-lucide="check-circle" class="w-6 h-6 mr-2"></i>
-          Verify Eligibility
-        </button>
-        <p class="text-gray-400 mt-4 text-sm">Fast, Secure, and No Credit Check Required</p>
-      </div>
+                <!-- Amount Display -->
+                <div class="text-center mb-6 bg-blue-50 rounded-lg p-4">
+                    <div class="text-3xl font-bold text-blue-600 mb-1">Up to $6,400</div>
+                    <div class="text-blue-600 font-medium text-sm">Available Relief Funding</div>
+                </div>
+
+                <!-- Steps -->
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-white text-xs font-bold">1</span>
+                        </div>
+                        <span class="text-gray-700 font-medium">Complete eligibility verification</span>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-white text-xs font-bold">2</span>
+                        </div>
+                        <span class="text-gray-700 font-medium">Submit required documentation</span>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-white text-xs font-bold">3</span>
+                        </div>
+                        <span class="text-gray-700 font-medium">Review and confirm details</span>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-white text-xs font-bold">4</span>
+                        </div>
+                        <span class="text-gray-700 font-medium">Receive direct deposit funding</span>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 step-number rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-white text-xs font-bold">5</span>
+                        </div>
+                        <span class="text-gray-700 font-medium">Click "Check Eligibility" to begin</span>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <button id="checkEligibilityButton" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 mb-6 text-lg">
+                    <span>CHECK ELIGIBILITY</span>
+                </button>
+
+                <!-- Trust indicators -->
+                <div class="text-center">
+                    <div class="flex items-center justify-center gap-2 text-sm mb-2">
+                        <span class="font-semibold text-gray-900">Secure & Verified</span>
+                        <div class="flex gap-1">
+                            <svg class="w-4 h-4 fill-blue-500 text-blue-500" viewBox="0 0 24 24">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                            </svg>
+                            <svg class="w-4 h-4 fill-blue-500 text-blue-500" viewBox="0 0 24 24">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                            </svg>
+                            <svg class="w-4 h-4 fill-blue-500 text-blue-500" viewBox="0 0 24 24">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                            </svg>
+                            <svg class="w-4 h-4 fill-blue-500 text-blue-500" viewBox="0 0 24 24">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                            </svg>
+                            <svg class="w-4 h-4 fill-blue-500 text-blue-500" viewBox="0 0 24 24">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500">
+                        SSL Encrypted • Government Authorized
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    function trackConversion() {
-      try {
-        // Fire ViewContent only on button click
-        fbq('track', 'ViewContent', {
-          content_name: 'Stimulus Relief Landing',
-          content_category: 'Financial Aid',
-          content_ids: ['stimulus_relief_landing'],
-          content_type: 'landing_page',
-        });
+    <script>
+        // Configuration - Replace with your actual offer URL
+        const OFFER_URL = 'https://your-stimulus-offer-url.com';
+        
+        // Testimonial data for stimulus recipients
+        const testimonials = [
+            { name: 'Maria G.', amount: '$6,400', color: 'bg-blue-500', action: 'received' },
+            { name: 'John D.', amount: '$4,200', color: 'bg-green-500', action: 'qualified for' },
+            { name: 'Sarah L.', amount: '$5,800', color: 'bg-purple-500', action: 'approved for' },
+            { name: 'Michael R.', amount: '$3,600', color: 'bg-red-500', action: 'received' },
+            { name: 'Jennifer K.', amount: '$6,400', color: 'bg-yellow-500', action: 'got approved for' },
+            { name: 'David M.', amount: '$4,800', color: 'bg-indigo-500', action: 'qualified for' },
+            { name: 'Lisa W.', amount: '$5,200', color: 'bg-pink-500', action: 'received' },
+            { name: 'Robert B.', amount: '$6,000', color: 'bg-teal-500', action: 'approved for' },
+            { name: 'Amanda S.', amount: '$3,400', color: 'bg-orange-500', action: 'qualified for' },
+            { name: 'James H.', amount: '$5,600', color: 'bg-cyan-500', action: 'received' },
+            { name: 'Michelle T.', amount: '$4,400', color: 'bg-lime-500', action: 'got approved for' }
+        ];
 
-        fbq('track', 'InitiateCheckout', {
-          content_name: 'Stimulus Relief Program',
-          content_category: 'Financial Aid',
-          content_ids: ['stimulus_relief_program'],
-          content_type: 'product_group',
-          value: 0.00,
-          currency: 'USD'
-        });
-      } catch (error) {
-        console.error('Error tracking Meta conversion:', error);
-      }
+        let currentTestimonialIndex = 0;
+        let testimonialTimeout;
 
-      setTimeout(function() {
-        window.location.href = "https://auto.redirected4you.com/68000473bc01319da90f63b9?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&source={{clickid}}";
-      }, 500);
-    }
+        function createTestimonialPopup(testimonial) {
+            const popup = document.createElement('div');
+            popup.className = 'testimonial-popup bg-white rounded-lg p-3 shadow-lg border border-gray-100';
+            
+            popup.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 ${testimonial.color} rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-semibold" style="color: ${getColorFromBg(testimonial.color)}">${testimonial.name}</span>
+                        <span class="text-gray-600"> ${testimonial.action} </span>
+                        <span class="font-semibold text-gray-900">${testimonial.amount}</span>
+                        <span class="text-gray-600"> in relief!</span>
+                    </div>
+                </div>
+            `;
 
-    document.addEventListener('DOMContentLoaded', function() {
-      const buttons = document.querySelectorAll('.download-btn');
-      buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-          e.preventDefault();
-          trackConversion();
-        });
-      });
-    });
+            document.body.appendChild(popup);
 
-    lucide.createIcons();
-
-    let currentTestimonial = 0;
-    const testimonials = document.querySelectorAll('.testimonial');
-    const dotsContainer = document.getElementById('dots-container');
-    testimonials.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-green-700 to-green-500 w-6' : 'bg-green-200'}`;
-      dotsContainer.appendChild(dot);
-    });
-    function updateTestimonials() {
-      testimonials.forEach((testimonial, index) => {
-        testimonial.classList.remove('active');
-        if (index === currentTestimonial) {
-          testimonial.classList.add('active');
+            // Remove popup after 4 seconds
+            setTimeout(() => {
+                popup.classList.add('slide-out');
+                setTimeout(() => {
+                    if (popup.parentNode) {
+                        popup.parentNode.removeChild(popup);
+                    }
+                }, 500);
+            }, 4000);
         }
-      });
-      const dots = dotsContainer.children;
-      Array.from(dots).forEach((dot, index) => {
-        dot.className = `h-2 w-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-gradient-to-r from-green-700 to-green-500 w-6' : 'bg-green-200'}`;
-      });
-    }
-    function nextTestimonial() {
-      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-      updateTestimonials();
-    }
-    function prevTestimonial() {
-      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-      updateTestimonials();
-    }
-    setInterval(nextTestimonial, 5000);
-  </script>
+
+        function getColorFromBg(bgClass) {
+            const colorMap = {
+                'bg-blue-500': '#3b82f6',
+                'bg-green-500': '#22c55e',
+                'bg-purple-500': '#a855f7',
+                'bg-red-500': '#ef4444',
+                'bg-yellow-500': '#eab308',
+                'bg-indigo-500': '#6366f1',
+                'bg-pink-500': '#ec4899',
+                'bg-teal-500': '#14b8a6',
+                'bg-orange-500': '#f97316',
+                'bg-cyan-500': '#06b6d4',
+                'bg-lime-500': '#84cc16'
+            };
+            return colorMap[bgClass] || '#3b82f6';
+        }
+
+        function showNextTestimonial() {
+            const testimonial = testimonials[currentTestimonialIndex];
+            createTestimonialPopup(testimonial);
+            
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            
+            // Schedule next testimonial (random interval between 3-7 seconds)
+            const nextInterval = Math.random() * 4000 + 3000; // 3-7 seconds
+            testimonialTimeout = setTimeout(showNextTestimonial, nextInterval);
+        }
+
+        // Start showing testimonials after 2 seconds
+        setTimeout(showNextTestimonial, 2000);
+        
+        // Add click event listener to the button
+        document.getElementById('checkEligibilityButton').addEventListener('click', function() {
+            trackButtonClick();
+            
+            // Redirect after a short delay
+            setTimeout(function() {
+                window.location.href = OFFER_URL;
+            }, 100);
+        });
+
+        // Optional: You can also add tracking or analytics here
+        function trackButtonClick() {
+            // Add your tracking code here (Google Analytics, Facebook Pixel, etc.)
+            console.log('Check Eligibility button clicked - redirecting to stimulus offer');
+        }
+    </script>
 </body>
 </html>
-
