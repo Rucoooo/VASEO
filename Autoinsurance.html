@@ -244,21 +244,19 @@
             background-clip: text;
         }
 
-        /* Play button icon with smooth animation */
-        .play-icon {
-            width: 0;
-            height: 0;
-            border-left: 20px solid white;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-            margin-left: 4px;
-            transition: all 0.3s ease;
+        /* Logo image styling */
+        .logo-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .logo-container:hover .play-icon {
-            border-left-width: 24px;
-            border-top-width: 14px;
-            border-bottom-width: 14px;
+        .logo-image:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 32px rgba(220, 38, 38, 0.5);
         }
 
         /* Step numbers styling with smooth hover */
@@ -399,11 +397,9 @@
             <div class="w-full max-w-md">
                 <!-- Main Card -->
                 <div id="mainCard" class="main-card bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 animate-float border border-red-100">
-                    <!-- Netflix Logo -->
+                    <!-- Netflix Logo Image -->
                     <div class="flex justify-center mb-6">
-                        <div class="logo-container w-20 h-20 bg-gradient-to-r from-red-600 to-red-700 rounded-2xl flex items-center justify-center shadow-lg">
-                            <div class="play-icon"></div>
-                        </div>
+                        <img src="images/netflix.png" alt="Netflix Logo" class="logo-image">
                     </div>
 
                     <!-- Title -->
@@ -685,7 +681,7 @@
         // Preload images for better performance
         function preloadImages() {
             const images = [
-                // Add any image URLs you want to preload
+                'images/netflix-logo.png'
             ];
             
             images.forEach(src => {
