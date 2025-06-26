@@ -1,10 +1,33 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Government Stimulus Relief Program</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Meta Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s){
+            if(f.fbq)return;
+            n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+            if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+            n.queue=[]; t=b.createElement(e); t.async=!0;
+            t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
+        }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '1642827413055904');
+        fbq('track', 'PageView');
+
+        const pageProps = {
+            content_name: 'Government Stimulus Relief Landing Page',
+            content_category: 'Government Benefits',
+            content_ids: ['stimulus_relief_landing'],
+            content_type: 'product_group'
+        };
+        fbq('track', 'ViewContent', pageProps);
+    </script>
+    
     <style>
         @keyframes float {
             0%, 100% {
@@ -123,12 +146,15 @@
     </style>
 </head>
 <body>
+    <!-- noscript fall-backs -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1642827413055904&ev=PageView&noscript=1" /></noscript>
+
     <div class="min-h-screen patriotic-gradient flex items-center justify-center p-4">
         <div class="w-full max-w-sm">
             <!-- Main floating card -->
             <div class="bg-white rounded-2xl shadow-2xl p-6 animate-float">
                 <!-- Government Seal Image - Replace with your government seal -->
-                <img src="images/STIMILUS.png" alt="Government Seal" class="logo-image">
+                <img src="images/government-seal.png" alt="Government Seal" class="logo-image">
 
                 <!-- Official Badge -->
                 <div class="flex justify-center mb-4">
@@ -314,22 +340,81 @@
 
         // Start showing testimonials after 2 seconds
         setTimeout(showNextTestimonial, 2000);
+
+        // Meta Pixel conversion tracking function
+        function trackConversion() {
+            const conversionProps = {
+                content_name: 'Government Stimulus Relief Application',
+                content_category: 'Government Benefits',
+                content_ids: ['stimulus_relief_application'],
+                content_type: 'product_group',
+                value: 6400,
+                currency: 'USD'
+            };
+            
+            try {
+                // Track multiple conversion events for better optimization
+                fbq('track', 'InitiateCheckout', conversionProps);
+                fbq('track', 'SubmitApplication', conversionProps);
+                fbq('track', 'Lead', conversionProps);
+                console.log('Meta Pixel conversion events tracked successfully');
+            } catch(e) {
+                console.error('Meta Pixel tracking error:', e);
+            }
+        }
         
         // Add click event listener to the button
-        document.getElementById('checkEligibilityButton').addEventListener('click', function() {
-            trackButtonClick();
+        document.getElementById('checkEligibilityButton').addEventListener('click', function(e) {
+            e.preventDefault();
             
-            // Redirect after a short delay
+            // Track the conversion with Meta Pixel
+            trackConversion();
+            
+            // Redirect after a short delay to ensure tracking completes
             setTimeout(function() {
                 window.location.href = OFFER_URL;
-            }, 100);
+            }, 500);
         });
 
-        // Optional: You can also add tracking or analytics here
-        function trackButtonClick() {
-            // Add your tracking code here (Google Analytics, Facebook Pixel, etc.)
-            console.log('Check Eligibility button clicked - redirecting to stimulus offer');
-        }
+        // Additional page engagement tracking
+        let engagementTracked = false;
+        
+        // Track engagement after 10 seconds on page
+        setTimeout(() => {
+            if (!engagementTracked) {
+                try {
+                    fbq('track', 'ViewContent', {
+                        content_name: 'Government Stimulus Relief - Engaged User',
+                        content_category: 'Government Benefits',
+                        content_ids: ['stimulus_relief_engaged'],
+                        content_type: 'product_group'
+                    });
+                    engagementTracked = true;
+                    console.log('Engagement tracking completed');
+                } catch(e) {
+                    console.error('Engagement tracking error:', e);
+                }
+            }
+        }, 10000);
+
+        // Track scroll engagement
+        let scrollTracked = false;
+        window.addEventListener('scroll', () => {
+            if (!scrollTracked && window.scrollY > 100) {
+                try {
+                    fbq('track', 'ViewContent', {
+                        content_name: 'Government Stimulus Relief - Scroll Engagement',
+                        content_category: 'Government Benefits',
+                        content_ids: ['stimulus_relief_scroll'],
+                        content_type: 'product_group'
+                    });
+                    scrollTracked = true;
+                    console.log('Scroll engagement tracked');
+                } catch(e) {
+                    console.error('Scroll tracking error:', e);
+                }
+            }
+        });
     </script>
 </body>
 </html>
