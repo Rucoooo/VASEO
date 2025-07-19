@@ -17,6 +17,7 @@
             min-height: 100vh;
             background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 25%, #ffa8a8 50%, #ffb3b3 75%, #ffc1c1 100%);
             overflow-x: hidden;
+            padding-bottom: 80px;
         }
 
         .container {
@@ -118,6 +119,43 @@
             animation: pulse 2s infinite;
         }
 
+        /* Progress Bar */
+        .progress-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .progress-text {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #ff4757 0%, #e84393 100%);
+            width: 80%;
+            border-radius: 4px;
+            animation: progress-grow 3s ease-out;
+        }
+
+        .progress-subtext {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
         /* Main Card */
         .main-card {
             background: rgba(255,255,255,0.95);
@@ -160,6 +198,7 @@
             border: 2px solid transparent;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
         }
 
         .step-card:hover {
@@ -190,6 +229,12 @@
             color: white;
             font-size: 1.2rem;
             flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .step-card.completed .step-icon {
+            background: #28a745;
+            animation: bounce 0.6s ease;
         }
 
         .step-text h3 {
@@ -202,6 +247,26 @@
         .step-text p {
             font-size: 0.85rem;
             color: #666;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 20px;
+            height: 20px;
+            background: #28a745;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .step-card.completed .checkmark {
+            display: flex;
+            animation: pop 0.4s ease;
         }
 
         /* CTA Button */
@@ -251,6 +316,7 @@
         .stars {
             color: #ffd700;
             font-size: 1.2rem;
+            animation: star-twinkle 2s infinite;
         }
 
         .rating-text {
@@ -360,19 +426,33 @@
             transform: translateX(0);
         }
 
-        /* Animations */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
         }
 
-        @keyframes pulse-glow {
-            0%, 100% { 
-                box-shadow: 0 8px 20px rgba(255,71,87,0.4);
-            }
-            50% { 
-                box-shadow: 0 8px 30px rgba(255,71,87,0.7);
-            }
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid #ff4757;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
         }
 
         /* Sticky CTA */
@@ -407,6 +487,48 @@
             color: #ff4757;
         }
 
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 8px 20px rgba(255,71,87,0.4);
+            }
+            50% { 
+                box-shadow: 0 8px 30px rgba(255,71,87,0.7);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes star-twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes progress-grow {
+            0% { width: 0%; }
+            100% { width: 80%; }
+        }
+
         /* Mobile Optimizations */
         @media (max-width: 480px) {
             .container {
@@ -434,13 +556,17 @@
             <div class="shein-logo">SHEIN</div>
             <h1 class="main-headline">🔥 CONGRATULATIONS!</h1>
             <h2 class="main-headline">Your $750 Shein Reward Is Waiting!</h2>
-            <p class="sub-headline">You've been randomly selected for today's exclusive offer – claim before the timer runs out!</p>
+            <p class="sub-headline">Exclusive offer for new users – claim before it expires!</p>
         </div>
 
         <!-- Timer Section -->
         <div class="timer-section">
             <div class="timer-text">⏰ OFFER EXPIRES IN:</div>
             <div class="countdown">
+                <div class="time-unit">
+                    <span class="time-number" id="hours">02</span>
+                    <span class="time-label">HRS</span>
+                </div>
                 <div class="time-unit">
                     <span class="time-number" id="minutes">14</span>
                     <span class="time-label">MIN</span>
@@ -450,7 +576,16 @@
                     <span class="time-label">SEC</span>
                 </div>
             </div>
-            <div class="slots-left">🔥 Only 3 Rewards Left Today!</div>
+            <div class="slots-left">⚠️ Only 3 Rewards Left Today!</div>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="progress-section">
+            <div class="progress-text">✅ 80% Complete - Almost There!</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="progress-subtext">You're so close to claiming your $750 reward!</div>
         </div>
 
         <!-- Main Card -->
@@ -471,6 +606,7 @@
                             <p>Just 3 simple questions to verify eligibility ⚡</p>
                         </div>
                     </div>
+                    <div class="checkmark">✓</div>
                 </div>
 
                 <div class="step-card" onclick="completeStep(2)">
@@ -481,26 +617,29 @@
                             <p>Everyone wins! Spin to reveal your prize 🎉</p>
                         </div>
                     </div>
+                    <div class="checkmark">✓</div>
                 </div>
 
                 <div class="step-card" onclick="completeStep(3)">
                     <div class="step-content">
-                        <div class="step-icon">⏳</div>
+                        <div class="step-icon">🔍</div>
                         <div class="step-text">
                             <h3>Verify Your Eligibility</h3>
                             <p>Quick verification process - almost done! 🎮</p>
                         </div>
                     </div>
+                    <div class="checkmark">✓</div>
                 </div>
 
                 <div class="step-card" onclick="completeStep(4)">
                     <div class="step-content">
-                        <div class="step-icon">💰</div>
+                        <div class="step-icon">🎉</div>
                         <div class="step-text">
                             <h3>Claim Your $750 Reward</h3>
                             <p>Congratulations! Your reward is ready to claim 🎁</p>
                         </div>
                     </div>
+                    <div class="checkmark">✓</div>
                 </div>
             </div>
 
@@ -513,15 +652,15 @@
             <div class="social-proof">
                 <div class="rating">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <span class="rating-text">4.8/5 (2,847 reviews)</span>
+                    <span class="rating-text">4.9/5 (2,647 reviews)</span>
                 </div>
                 
                 <div class="testimonials">
                     <div class="testimonial">
                         <div class="testimonial-avatar">A</div>
                         <div class="testimonial-content">
-                            <div class="testimonial-name">Amanda K. - Los Angeles</div>
-                            <div class="testimonial-text">"Just got my $750 Shein code! So easy!"</div>
+                            <div class="testimonial-name">Alexandra - Los Angeles</div>
+                            <div class="testimonial-text">"I didn't think this would work but I actually got $750 on Shein 🥹"</div>
                         </div>
                     </div>
                     
@@ -546,21 +685,21 @@
             <!-- Trust Badges -->
             <div class="trust-badges">
                 <div class="trust-badge">
-                    <div class="badge-icon">SHEIN</div>
-                    <div class="badge-text">Verified Partner</div>
-                </div>
-                <div class="trust-badge">
                     <div class="badge-icon">SSL</div>
                     <div class="badge-text">Secure</div>
                 </div>
                 <div class="trust-badge">
-                    <div class="badge-icon">✓</div>
-                    <div class="badge-text">Trusted</div>
+                    <div class="badge-icon">VISA</div>
+                    <div class="badge-text">Verified</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="badge-icon">PP</div>
+                    <div class="badge-text">PayPal</div>
                 </div>
             </div>
 
             <div style="text-align: center; color: #666; font-size: 0.85rem; margin-top: 1rem;">
-                🔒 Secure & Confidential - Verified by Shein Partners
+                🔒 Secure & Confidential — Verified by Shein Partners
             </div>
         </div>
     </div>
@@ -570,6 +709,15 @@
         <button onclick="startProcess()">🎁 CLAIM $750 REWARD NOW</button>
     </div>
 
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3>Verifying your eligibility...</h3>
+            <p>Please wait while we process your reward</p>
+        </div>
+    </div>
+
     <!-- Popup Notification -->
     <div class="popup-notification" id="popup">
         💬 Amanda just claimed her $750 Shein code from LA
@@ -577,6 +725,7 @@
 
     <script>
         let completedSteps = 0;
+        let timerHours = 2;
         let timerMinutes = 14;
         let timerSeconds = 37;
 
@@ -587,12 +736,18 @@
             } else if (timerMinutes > 0) {
                 timerMinutes--;
                 timerSeconds = 59;
+            } else if (timerHours > 0) {
+                timerHours--;
+                timerMinutes = 59;
+                timerSeconds = 59;
             } else {
                 // Reset timer when it reaches 0
+                timerHours = 2;
                 timerMinutes = 14;
                 timerSeconds = 37;
             }
             
+            document.getElementById('hours').textContent = timerHours.toString().padStart(2, '0');
             document.getElementById('minutes').textContent = timerMinutes.toString().padStart(2, '0');
             document.getElementById('seconds').textContent = timerSeconds.toString().padStart(2, '0');
         }
@@ -610,19 +765,59 @@
                 // Show success message
                 showPopup(`✅ Step ${stepNumber} completed!`);
                 
+                // Update progress
+                updateProgress();
+                
                 // If all steps completed, change CTA
                 if (completedSteps === 4) {
-                    const ctaButton = document.querySelector('.cta-button');
-                    ctaButton.textContent = '🎉 ALL STEPS COMPLETE - CLAIM NOW!';
-                    ctaButton.style.animation = 'pulse-glow 1s infinite';
+                    const ctaButtons = document.querySelectorAll('.cta-button, .sticky-cta button');
+                    ctaButtons.forEach(button => {
+                        button.textContent = '🎉 ALL STEPS COMPLETE - CLAIM NOW!';
+                        button.style.animation = 'pulse-glow 1s infinite';
+                    });
                 }
+            }
+        }
+
+        // Update Progress Bar
+        function updateProgress() {
+            const progressFill = document.querySelector('.progress-fill');
+            const progressText = document.querySelector('.progress-text');
+            const progressSubtext = document.querySelector('.progress-subtext');
+            
+            const percentage = Math.min(80 + (completedSteps * 5), 100);
+            progressFill.style.width = percentage + '%';
+            
+            if (completedSteps === 4) {
+                progressText.textContent = '✅ 100% Complete - Ready to Claim!';
+                progressSubtext.textContent = 'Congratulations! Your $750 reward is ready!';
+            } else {
+                progressText.textContent = `✅ ${percentage}% Complete - Keep Going!`;
+                progressSubtext.textContent = `${4 - completedSteps} steps remaining to claim your reward!`;
             }
         }
 
         // Start Process Function
         function startProcess() {
-            // Add your redirect URL here
-            window.location.href = 'https://example.com/signup';
+            // Show loading screen
+            showLoading();
+            
+            // Simulate processing time
+            setTimeout(() => {
+                hideLoading();
+                // Redirect to your offer URL
+                window.location.href = 'https://example.com/signup';
+            }, 2000);
+        }
+
+        // Show Loading Screen
+        function showLoading() {
+            document.getElementById('loadingScreen').style.display = 'flex';
+        }
+
+        // Hide Loading Screen
+        function hideLoading() {
+            document.getElementById('loadingScreen').style.display = 'none';
         }
 
         // Show Popup Notifications
@@ -639,10 +834,12 @@
         // Random popup notifications
         const notifications = [
             '💬 Amanda just claimed her $750 Shein code from LA',
-            '🎉 108 people claimed rewards in the last hour',
+            '🎉 127 people claimed rewards in the last hour',
             '💰 Sarah from NYC just won $750 Shein reward!',
             '🔥 Only 2 spots left for today\'s promotion!',
-            '✨ Jessica from Miami just completed all steps!'
+            '✨ Jessica from Miami just completed all steps!',
+            '🎁 Michael from Texas just claimed his reward!',
+            '💕 Emma from Florida is shopping with her $750!'
         ];
 
         function showRandomNotification() {
@@ -655,30 +852,54 @@
 
         // Geo-targeting simulation
         function detectLocation() {
-            // This would normally use geolocation API
-            const locations = ['California', 'New York', 'Texas', 'Florida', 'Illinois'];
+            const locations = ['California', 'New York', 'Texas', 'Florida', 'Illinois', 'Pennsylvania', 'Ohio'];
             const randomLocation = locations[Math.floor(Math.random() * locations.length)];
             
             // Update headline with location
             setTimeout(() => {
                 const headline = document.querySelector('.sub-headline');
-                headline.textContent = `Exclusive offer for ${randomLocation} users - claim before it expires!`;
+                headline.textContent = `Exclusive offer for ${randomLocation} users – claim before it expires!`;
             }, 2000);
+        }
+
+        // Auto-complete first step after 3 seconds
+        function autoCompleteFirstStep() {
+            setTimeout(() => {
+                if (completedSteps === 0) {
+                    completeStep(1);
+                    showPopup('🎯 Great! You\'re eligible for the $750 reward!');
+                }
+            }, 3000);
         }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             detectLocation();
+            autoCompleteFirstStep();
             
-            // Show welcome popup after 3 seconds
+            // Show welcome popup after 2 seconds
             setTimeout(() => {
-                showPopup('🎁 Welcome! Your $750 reward is reserved for 15 minutes');
-            }, 3000);
+                showPopup('🎁 Welcome! Your $750 reward is reserved for 2 hours');
+            }, 2000);
         });
 
-        // Prevent right-click and text selection (optional)
+        // Prevent right-click and text selection
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('selectstart', e => e.preventDefault());
+
+        // Haptic feedback simulation for mobile
+        function hapticFeedback() {
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+        }
+
+        // Add haptic feedback to buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('button, .step-card')) {
+                hapticFeedback();
+            }
+        });
     </script>
 </body>
 </html>
