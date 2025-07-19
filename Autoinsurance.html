@@ -46,7 +46,7 @@
         
         /* Header Section */
         .header {
-            padding: 24px 0 16px;
+            padding: 40px 0 32px;
             text-align: center;
         }
         
@@ -57,19 +57,19 @@
             background: white;
             border: 1px solid #FFE4E6;
             border-radius: 50px;
-            padding: 12px 20px;
+            padding: 16px 24px;
             box-shadow: 0 2px 8px rgba(233, 66, 109, 0.1);
         }
         
         .heart-icon {
-            width: 18px;
-            height: 18px;
-            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
             fill: #E9426D;
         }
         
         .logo-text {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             color: #2D2D2D;
             letter-spacing: 1px;
@@ -77,7 +77,7 @@
         
         /* Hero Section */
         .hero {
-            padding: 16px 0 32px;
+            padding: 32px 0 48px;
             text-align: center;
         }
         
@@ -85,7 +85,7 @@
             font-size: 2.5rem;
             font-weight: 800;
             color: #2D2D2D;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             line-height: 1.1;
         }
         
@@ -93,13 +93,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 12px;
         }
         
         .party-icon {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
         }
         
         .reward-text {
@@ -114,20 +114,21 @@
         .hero-description {
             font-size: 1.125rem;
             color: #4A5568;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
             font-weight: 400;
+            line-height: 1.6;
         }
         
         /* How It Works Section */
         .how-it-works {
-            padding: 24px 0 40px;
+            padding: 40px 0 56px;
         }
         
         .section-title {
             font-size: 1.875rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             color: #2D2D2D;
         }
         
@@ -139,8 +140,8 @@
         .step {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 24px;
-            padding: 16px;
+            margin-bottom: 32px;
+            padding: 20px;
             background: white;
             border-radius: 16px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
@@ -148,8 +149,8 @@
         
         .step-number {
             flex-shrink: 0;
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, #E9426D, #F55482);
             border-radius: 50%;
             display: flex;
@@ -158,19 +159,19 @@
             color: white;
             font-weight: 700;
             font-size: 1.125rem;
-            margin-right: 16px;
+            margin-right: 20px;
         }
         
         .step-content {
             flex: 1;
-            padding-top: 4px;
+            padding-top: 8px;
         }
         
         .step-text {
             font-size: 1rem;
             font-weight: 600;
             color: #2D2D2D;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
             line-height: 1.4;
         }
         
@@ -178,11 +179,12 @@
             font-size: 0.875rem;
             color: #6B7280;
             font-weight: 400;
+            line-height: 1.5;
         }
         
         /* CTA Section */
         .cta-section {
-            padding: 24px 0 40px;
+            padding: 40px 0 56px;
             text-align: center;
         }
         
@@ -192,7 +194,7 @@
             color: white;
             font-size: 1.125rem;
             font-weight: 700;
-            padding: 18px 32px;
+            padding: 22px 40px;
             border: none;
             border-radius: 50px;
             text-decoration: none;
@@ -202,7 +204,7 @@
             transition: all 0.3s ease;
             cursor: pointer;
             width: 100%;
-            max-width: 320px;
+            max-width: 360px;
             position: relative;
             overflow: hidden;
         }
@@ -230,21 +232,21 @@
         .cta-microcopy {
             font-size: 0.875rem;
             color: #6B7280;
-            margin-top: 12px;
+            margin-top: 16px;
             font-weight: 500;
         }
         
         /* Footer Section */
         .footer {
-            padding: 32px 0 24px;
+            padding: 48px 0 32px;
             text-align: center;
             border-top: 1px solid #FFE4E6;
-            margin-top: 24px;
+            margin-top: 32px;
         }
         
         .footer-logo {
             opacity: 0.4;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
         
         .footer-logo-text {
@@ -257,15 +259,18 @@
             font-size: 0.75rem;
             color: #6B7280;
             font-weight: 500;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             line-height: 1.4;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .legal-links {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             flex-wrap: wrap;
         }
         
@@ -287,6 +292,10 @@
         
         /* Responsive Design */
         @media (min-width: 375px) {
+            .container {
+                padding: 0 24px;
+            }
+            
             .hero-title {
                 font-size: 3rem;
             }
@@ -298,21 +307,44 @@
             .hero-description {
                 font-size: 1.25rem;
             }
+            
+            .step {
+                padding: 24px;
+                margin-bottom: 36px;
+            }
         }
         
         @media (min-width: 414px) {
             .container {
-                padding: 0 20px;
+                padding: 0 28px;
+            }
+            
+            .header {
+                padding: 48px 0 40px;
+            }
+            
+            .hero {
+                padding: 40px 0 56px;
+            }
+            
+            .how-it-works {
+                padding: 48px 0 64px;
+            }
+            
+            .cta-section {
+                padding: 48px 0 64px;
             }
             
             .step {
-                padding: 20px;
+                padding: 28px;
+                margin-bottom: 40px;
             }
             
             .step-number {
-                width: 48px;
-                height: 48px;
+                width: 52px;
+                height: 52px;
                 font-size: 1.25rem;
+                margin-right: 24px;
             }
             
             .step-text {
@@ -323,7 +355,23 @@
         @media (min-width: 768px) {
             .container {
                 max-width: 600px;
-                padding: 0 24px;
+                padding: 0 32px;
+            }
+            
+            .header {
+                padding: 56px 0 48px;
+            }
+            
+            .hero {
+                padding: 48px 0 64px;
+            }
+            
+            .how-it-works {
+                padding: 56px 0 72px;
+            }
+            
+            .cta-section {
+                padding: 56px 0 72px;
             }
             
             .hero-title {
@@ -336,8 +384,8 @@
             
             .cta-button {
                 font-size: 1.25rem;
-                padding: 20px 40px;
-                max-width: 400px;
+                padding: 24px 48px;
+                max-width: 420px;
             }
             
             .cta-button:hover {
@@ -347,6 +395,11 @@
             
             .cta-button:hover::before {
                 left: 100%;
+            }
+            
+            .step {
+                padding: 32px;
+                margin-bottom: 44px;
             }
         }
         
