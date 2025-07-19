@@ -2,569 +2,513 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔥 CONGRATULATIONS! Your $750 Shein Reward Is Waiting!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Congratulations! You've been selected for an exclusive $750 Shein reward. Complete 4 simple steps to claim your gift card.">
+    <meta name="keywords" content="Shein, reward, gift card, $750, exclusive offer">
+    <meta name="robots" content="noindex, nofollow">
+    <title>$750 Shein Reward - Claim Your Exclusive Gift Card</title>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
+        /* CSS Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-            min-height: 100vh;
-            color: #333;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #FEF7F7;
+            color: #2D2D2D;
+            line-height: 1.5;
             overflow-x: hidden;
-            padding-bottom: 80px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-
+        
+        /* Container */
         .container {
-            max-width: 400px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 1rem;
-            min-height: 100vh;
+            padding: 0 16px;
         }
-
-        /* Header */
+        
+        /* Header Section */
         .header {
+            padding: 24px 0 16px;
             text-align: center;
-            padding: 1rem 0;
         }
-
-        .shein-logo {
-            background: #000;
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
-            font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            display: inline-block;
+        
+        .logo-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1px solid #FFE4E6;
+            border-radius: 50px;
+            padding: 12px 20px;
+            box-shadow: 0 2px 8px rgba(233, 66, 109, 0.1);
         }
-
+        
+        .heart-icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            fill: #E9426D;
+        }
+        
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2D2D2D;
+            letter-spacing: 1px;
+        }
+        
         /* Hero Section */
         .hero {
-            background: white;
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
+            padding: 16px 0 32px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-
-        .headline {
-            font-size: 1.4rem;
+        
+        .hero-title {
+            font-size: 2.5rem;
             font-weight: 800;
-            color: #333;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
+            color: #2D2D2D;
+            margin-bottom: 16px;
+            line-height: 1.1;
         }
-
-        .subheadline {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        /* Timer */
-        .timer-section {
-            background: #000;
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .countdown {
+        
+        .hero-subtitle {
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 8px;
         }
-
-        .time-unit {
-            background: #ff1493;
-            color: white;
-            padding: 0.75rem;
-            border-radius: 8px;
-            min-width: 60px;
-            text-align: center;
-        }
-
-        .time-number {
+        
+        .party-icon {
             font-size: 1.5rem;
-            font-weight: 800;
-            display: block;
         }
-
-        .time-label {
-            font-size: 0.7rem;
-            opacity: 0.9;
-        }
-
-        .scarcity {
-            color: #ff69b4;
+        
+        .reward-text {
+            font-size: 1.5rem;
             font-weight: 700;
-            font-size: 0.9rem;
-            animation: pulse 2s infinite;
+            background: linear-gradient(135deg, #E9426D, #F55482);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        /* Progress Bar */
-        .progress-section {
-            background: white;
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1rem;
+        
+        .hero-description {
+            font-size: 1.125rem;
+            color: #4A5568;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            padding: 24px 0 40px;
+        }
+        
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
             text-align: center;
+            margin-bottom: 32px;
+            color: #2D2D2D;
         }
-
-        .progress-text {
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
+        
+        .steps-container {
+            max-width: 480px;
+            margin: 0 auto;
         }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #f0f0f0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-            width: 60%;
-            border-radius: 4px;
-            animation: progress-grow 2s ease-out;
-        }
-
-        /* Steps Section */
-        .steps {
-            background: white;
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
+        
         .step {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            border-radius: 12px;
-            margin-bottom: 0.75rem;
-            background: #f8f9fa;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
         }
-
-        .step:hover {
-            background: #e9ecef;
-            transform: translateY(-2px);
-        }
-
-        .step.completed {
-            background: #d4edda;
-            border: 2px solid #28a745;
-        }
-
-        .step-icon {
+        
+        .step-number {
+            flex-shrink: 0;
             width: 40px;
             height: 40px;
-            background: #ff1493;
+            background: linear-gradient(135deg, #E9426D, #F55482);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-right: 16px;
         }
-
-        .step.completed .step-icon {
-            background: #28a745;
+        
+        .step-content {
+            flex: 1;
+            padding-top: 4px;
         }
-
+        
         .step-text {
-            font-weight: 700;
-            color: #333;
             font-size: 1rem;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            width: 100%;
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-            color: white;
-            font-weight: 800;
-            font-size: 1.2rem;
-            padding: 1.2rem;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 1rem;
-            box-shadow: 0 8px 20px rgba(255,20,147,0.4);
-            animation: pulse-glow 2s infinite;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(255,20,147,0.6);
-        }
-
-        /* Social Proof */
-        .social-proof {
-            background: white;
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .rating {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .stars {
-            color: #ffd700;
-            font-size: 1.2rem;
-            margin-right: 0.5rem;
-        }
-
-        .rating-text {
-            font-weight: 700;
-            color: #333;
-            font-size: 0.9rem;
-        }
-
-        .testimonial {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .testimonial:last-child {
-            margin-bottom: 0;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ff69b4, #ff1493);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .testimonial-content {
-            flex-grow: 1;
-        }
-
-        .testimonial-name {
-            font-weight: 700;
-            color: #333;
-            font-size: 0.85rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .testimonial-text {
-            color: #666;
-            font-size: 0.8rem;
-            line-height: 1.3;
-        }
-
-        /* Footer */
-        .footer {
-            background: white;
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .footer-text {
             font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
+            color: #2D2D2D;
+            margin-bottom: 4px;
+            line-height: 1.4;
         }
-
-        .trust-badges {
+        
+        .step-subtext {
+            font-size: 0.875rem;
+            color: #6B7280;
+            font-weight: 400;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 24px 0 40px;
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #E9426D, #F55482);
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 700;
+            padding: 18px 32px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(233, 66, 109, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            max-width: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(233, 66, 109, 0.4);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:active::before {
+            left: 100%;
+        }
+        
+        .cta-microcopy {
+            font-size: 0.875rem;
+            color: #6B7280;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+        
+        /* Footer Section */
+        .footer {
+            padding: 32px 0 24px;
+            text-align: center;
+            border-top: 1px solid #FFE4E6;
+            margin-top: 24px;
+        }
+        
+        .footer-logo {
+            opacity: 0.4;
+            margin-bottom: 16px;
+        }
+        
+        .footer-logo-text {
+            font-size: 0.875rem;
+            color: #9CA3AF;
+            font-weight: 600;
+        }
+        
+        .geo-restriction {
+            font-size: 0.75rem;
+            color: #6B7280;
+            font-weight: 500;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .legal-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
             align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
-
-        .badge {
-            background: #333;
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 700;
+        
+        .legal-link {
+            font-size: 0.75rem;
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
-
-        /* Sticky CTA */
-        .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, #ff1493 0%, #dc143c 100%);
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-            z-index: 100;
+        
+        .legal-link:active {
+            color: #E9426D;
         }
-
-        .sticky-cta button {
-            width: 100%;
-            max-width: 400px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid white;
-            font-weight: 800;
-            font-size: 1.1rem;
-            padding: 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        
+        .legal-separator {
+            color: #D1D5DB;
+            font-size: 0.75rem;
         }
-
-        .sticky-cta button:hover {
-            background: white;
-            color: #ff1493;
-        }
-
-        /* Animations */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { 
-                box-shadow: 0 8px 20px rgba(255,20,147,0.4);
+        
+        /* Responsive Design */
+        @media (min-width: 375px) {
+            .hero-title {
+                font-size: 3rem;
             }
-            50% { 
-                box-shadow: 0 8px 30px rgba(255,20,147,0.7);
+            
+            .reward-text {
+                font-size: 1.75rem;
+            }
+            
+            .hero-description {
+                font-size: 1.25rem;
             }
         }
-
-        @keyframes progress-grow {
-            0% { width: 0%; }
-            100% { width: 60%; }
-        }
-
-        /* Mobile Optimizations */
-        @media (max-width: 480px) {
+        
+        @media (min-width: 414px) {
             .container {
-                padding: 0.75rem;
+                padding: 0 20px;
             }
             
-            .headline {
-                font-size: 1.2rem;
+            .step {
+                padding: 20px;
             }
             
-            .hero, .steps {
-                padding: 1rem;
+            .step-number {
+                width: 48px;
+                height: 48px;
+                font-size: 1.25rem;
             }
+            
+            .step-text {
+                font-size: 1.125rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 600px;
+                padding: 0 24px;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .reward-text {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                font-size: 1.25rem;
+                padding: 20px 40px;
+                max-width: 400px;
+            }
+            
+            .cta-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 25px rgba(233, 66, 109, 0.4);
+            }
+            
+            .cta-button:hover::before {
+                left: 100%;
+            }
+        }
+        
+        /* Performance Optimizations */
+        .step, .cta-button, .logo-pill {
+            will-change: transform;
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Focus styles for accessibility */
+        .cta-button:focus {
+            outline: 3px solid #93C5FD;
+            outline-offset: 2px;
+        }
+        
+        .legal-link:focus {
+            outline: 2px solid #93C5FD;
+            outline-offset: 1px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="shein-logo">SHEIN</div>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-pill">
+                <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="logo-text">SHEIN</span>
+            </div>
         </div>
+    </header>
 
-        <!-- Hero Section -->
-        <div class="hero">
-            <h1 class="headline">🔥 CONGRATULATIONS! Your $750 Shein Reward Is Waiting!</h1>
-            <p class="subheadline">Claim before the timer runs out!</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Congratulations!</h1>
+            
+            <div class="hero-subtitle">
+                <span class="party-icon">🎉</span>
+                <span class="reward-text">$750 Reward Selected</span>
+                <span class="party-icon">🎉</span>
+            </div>
+
+            <p class="hero-description">
+                You've been selected for an exclusive Shein reward.
+            </p>
         </div>
+    </section>
 
-        <!-- Timer -->
-        <div class="timer-section">
-            <div class="countdown">
-                <div class="time-unit">
-                    <span class="time-number" id="minutes">14</span>
-                    <span class="time-label">MIN</span>
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Your Path to $750</h2>
+            
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-text">Fill out super basic info 📝</div>
+                    </div>
                 </div>
-                <div class="time-unit">
-                    <span class="time-number" id="seconds">37</span>
-                    <span class="time-label">SEC</span>
+
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-text">Answer qualifying questions</div>
+                    </div>
                 </div>
-            </div>
-            <div class="scarcity">⚠️ Only 3 Rewards Left Today!</div>
-        </div>
 
-        <!-- Progress Bar -->
-        <div class="progress-section">
-            <div class="progress-text">✅ 60% Complete – Keep Going!</div>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
-            </div>
-        </div>
-
-        <!-- Steps -->
-        <div class="steps">
-            <div class="step" onclick="completeStep(1)">
-                <div class="step-icon">❓</div>
-                <div class="step-text">Answer Quick Questions</div>
-            </div>
-            
-            <div class="step" onclick="completeStep(2)">
-                <div class="step-icon">🎡</div>
-                <div class="step-text">Spin Reward Wheel</div>
-            </div>
-            
-            <div class="step" onclick="completeStep(3)">
-                <div class="step-icon">🎉</div>
-                <div class="step-text">Claim Your Reward</div>
-            </div>
-        </div>
-
-        <!-- CTA Button -->
-        <button class="cta-button" onclick="startProcess()">
-            🎁 CLAIM YOUR $750 REWARD
-        </button>
-
-        <!-- Social Proof -->
-        <div class="social-proof">
-            <div class="rating">
-                <span class="stars">⭐⭐⭐⭐⭐</span>
-                <span class="rating-text">4.9/5 (2,647 reviews)</span>
-            </div>
-            
-            <div class="testimonial">
-                <div class="avatar">A</div>
-                <div class="testimonial-content">
-                    <div class="testimonial-name">Alexandra - Los Angeles</div>
-                    <div class="testimonial-text">I didn't think this would work but I actually got $750 on Shein 🥹</div>
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-text">Complete the required deals</div>
+                        <div class="step-subtext">(The more you do, the higher your reward)</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="testimonial">
-                <div class="avatar">S</div>
-                <div class="testimonial-content">
-                    <div class="testimonial-name">Sarah M. - New York</div>
-                    <div class="testimonial-text">Legit! Already shopping with my reward 💕</div>
+
+                <!-- Step 4 -->
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-text">Receive your reward, from a minimum of $150 up to a $750 Gift Card!</div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-text">🔒 Verified by Shein Partners</div>
-            <div class="trust-badges">
-                <div class="badge">SSL</div>
-                <div class="badge">PayPal</div>
-                <div class="badge">VISA</div>
+    <!-- Call-to-Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <a href="#" class="cta-button" role="button" aria-label="Start claiming your Shein reward">
+                START NOW & CLAIM YOUR REWARD
+            </a>
+            <p class="cta-microcopy">Takes less than 60 seconds to start.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <span class="footer-logo-text">SHEIN</span>
+            </div>
+            
+            <p class="geo-restriction">
+                Offer only available exclusively to residents of the US, UK, AU, & CA.
+            </p>
+            
+            <div class="legal-links">
+                <a href="#" class="legal-link">Terms & Conditions</a>
+                <span class="legal-separator">•</span>
+                <a href="#" class="legal-link">Privacy Policy</a>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Sticky CTA -->
-    <div class="sticky-cta">
-        <button onclick="startProcess()">🎁 CLAIM $750 REWARD NOW</button>
-    </div>
-
+    <!-- Performance and Analytics Scripts -->
     <script>
-        let completedSteps = 0;
-        let timerMinutes = 14;
-        let timerSeconds = 37;
-
-        // Countdown Timer
-        function updateTimer() {
-            if (timerSeconds > 0) {
-                timerSeconds--;
-            } else if (timerMinutes > 0) {
-                timerMinutes--;
-                timerSeconds = 59;
-            } else {
-                // Reset timer
-                timerMinutes = 14;
-                timerSeconds = 37;
+        // Preload critical resources
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scroll behavior for better UX
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // Track CTA button clicks
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Add your tracking/redirect logic here
+                    console.log('CTA clicked - redirect to offer page');
+                });
             }
             
-            document.getElementById('minutes').textContent = timerMinutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = timerSeconds.toString().padStart(2, '0');
-        }
-
-        // Start timer
-        setInterval(updateTimer, 1000);
-
-        // Complete Step Function
-        function completeStep(stepNumber) {
-            const steps = document.querySelectorAll('.step');
-            if (stepNumber <= steps.length && !steps[stepNumber - 1].classList.contains('completed')) {
-                steps[stepNumber - 1].classList.add('completed');
-                steps[stepNumber - 1].querySelector('.step-icon').textContent = '✅';
-                completedSteps++;
-                
-                // Update progress
-                updateProgress();
-                
-                // Haptic feedback
-                if (navigator.vibrate) {
-                    navigator.vibrate(50);
-                }
+            // Optimize for mobile performance
+            if ('serviceWorker' in navigator) {
+                // Register service worker for caching if needed
             }
+        });
+
+        // Viewport height fix for mobile browsers
+        function setVH() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
         }
-
-        // Update Progress
-        function updateProgress() {
-            const progressFill = document.querySelector('.progress-fill');
-            const progressText = document.querySelector('.progress-text');
-            
-            const percentage = Math.min(60 + (completedSteps * 13), 100);
-            progressFill.style.width = percentage + '%';
-            
-            if (completedSteps === 3) {
-                progressText.textContent = '✅ 100% Complete – Ready to Claim!';
-            } else {
-                progressText.textContent = `✅ ${percentage}% Complete – Keep Going!`;
-            }
-        }
-
-        // Start Process
-        function startProcess() {
-            // Haptic feedback
-            if (navigator.vibrate) {
-                navigator.vibrate(100);
-            }
-            
-            // Redirect to offer
-            window.location.href = 'https://example.com/signup';
-        }
-
-        // Auto-complete first step after 2 seconds
-        setTimeout(() => {
-            if (completedSteps === 0) {
-                completeStep(1);
-            }
-        }, 2000);
-
-        // Prevent context menu and text selection
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('selectstart', e => e.preventDefault());
+        
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
     </script>
 </body>
 </html>
